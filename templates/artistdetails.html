@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/main.css">
+    <title>{{.Artist.Name}} Profile</title>
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <header>
+        <div class="logo-container">
+            <img src="static/Screenshot_from_2024-10-17_23-52-31-removebg-preview.png" alt="Logo" class="logo">
+        </div>
+    </header>
+    
+    <main>
+        <div class="logo">
+            <h1>{{.Artist.Name}}</h1>
+            <p>Discover the Artistic Odyssey of {{.Artist.Name}}</p>
+        </div>
+
+        <div class="artist-profile-container">
+            <div class="artist-details">
+                <img src="{{.Artist.Image}}" alt="image of {{.Artist.Name}}" class="artist-picture">
+                <p><strong>Members:</strong></p>
+                <ul>
+                    {{range .Artist.Members}}
+                        <li>{{.}}</li>
+                    {{end}}
+                </ul>
+                <p><strong>Creation Date:</strong> {{.Artist.CreationDate}}</p>
+                <p><strong>First Album:</strong> {{.Artist.FirstAlbum}}</p>
+            </div>
+
+            <div class="artist-links">
+                <a href="/locations?artistId={{.Artist.ID}}" class="link-yellow-bold">View Locations</a><br>
+                <!-- <a href="/concert_dates?artistId={{.Artist.ID}}" class="link-yellow-bold">Upcoming Concert Dates</a><br> -->
+                <a href="/relations?artistId={{.Artist.ID}}" class="link-yellow-bold">Artist Relations</a>
+            </div>
+            
+        </div>
+
+        <div class="locations-container">
+            <h2>Concert Locations</h2>
+            {{range .Locations}}
+                <div class="location-item">
+                    <ul>
+                        {{range .Locations}}
+                            <li>{{.}}</li>
+                        {{end}}
+                    </ul>
+                </div>
+            {{end}}
+        </div>
+
+        <div class="concert-dates-container">
+            <h2>Concert Dates</h2>
+            {{ if .ConcertDates }}
+                {{ range .ConcertDates }}
+                    <div class="concert-item">
+                        <ul class="concert-list">
+                            <li>{{.Date}}</li>
+                        </ul>
+                    </div>
+                {{ end }}
+            {{ else }}
+                <p class="no-dates">No concert dates available.</p>
+            {{ end }}
+        </div>
+        
+        <div class="relations-container">
+            <h2>Relations</h2>
+            {{ if .Relations }}
+                {{ range .Relations }}
+                    <div class="relation-item">
+                        <ul>
+                            {{range $date, $locations := .DatesLocation}}
+                                <li>{{ $date }}:
+                                    <ul>
+                                        {{range $locations}}
+                                            <li>{{.}}</li>
+                                        {{end}}
+                                    </ul>
+                                </li>
+                            {{end}}
+                        </ul>
+                    </div>
+                {{ end }}
+            {{ else }}
+                <p>No relations available.</p>
+            {{ end }}
+        </div>
+
+        <a href="/" class="back-home-button">Back to Home Page</a>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Music Lovers. All rights reserved.</p>
+        <p>Delve into the lives and legacies of legendary artists and their iconic works.</p>
+        <p>Join us on this musical journey and discover the stories behind the sounds!</p>
+    </footer>
+</body>
+</html>

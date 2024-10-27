@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/main.css">
+    <title>Concert Dates</title>
+</head>
+<body>
+<div class="overlay"></div>
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo-link">
+                <h3>Groupie-Tracker</h3>
+            </a>
+            <div class="header-middle">
+                <form id="search-form" action="/search" method="GET">
+                    <input type="text" class="search-bar" name="query" placeholder="Search by name">
+                    <button type="submit" class="search-button">Search</button>
+                </form>
+            </div>
+            <a href="/" class="home-link">Home</a>
+        </div>
+    </header>
+    <main>
+        <div class="logo" id="dates-logo">
+            <h1>🎶 Music Lovers 🎤</h1>
+            <p>✨ Discover the Icons of Music and Their Journey</p>
+        </div>
+        <div class="container">
+            <h1>Concert Dates 📅</h1>
+            {{ if . }}
+                {{ range . }}
+                    <div class="concert-item">
+                        <h2>Concert ID: {{ .Id }}</h2>
+                        <ul class="concert-list">
+                            {{ range .Dates }}
+                                <li>{{ . }}</li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                {{ end }}
+            {{ else }}
+                <p class="no-dates">🚫 No concert dates available at the moment.</p>
+            {{ end }}
+            <a href="/" class="back-home-button">🔙 Back to Home Page</a>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Music Lovers. All rights reserved.</p>
+            <p>🎤 Dive into the world of legendary artists and their unforgettable performances. For more insights, visit our <a href="#">about page</a>.</p>
+        </div>
+    </footer>
+</body>
+</html>

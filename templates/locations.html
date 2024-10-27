@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/main.css">
+    <title>Concert Locations</title>
+</head>
+<body>
+
+ <div class="overlay"></div>
+   
+ <header>
+    <div class="logo-container">
+        <img src="static/Screenshot_from_2024-10-17_23-52-31-removebg-preview.png" alt="Logo" class="logo">
+    </div>
+</header>
+
+    <main>
+        <div class="container">
+            <h1 class="main-title">Concert Locations</h1>
+            {{range .}} <!-- This assumes . is a slice of Location structs -->
+                <div class="location-item">
+                    <!-- <h2 class="location-id">Id: {{.ID}}</h2> -->
+                    <!-- <p class="location-date">Date: <a href="{{.Date}}" target="_blank">{{.Date}}</a></p> -->
+                    <ul>
+                        {{range .Locations}} <!-- Ensure that Locations is correctly defined in your struct -->
+                            <li>{{.}}</li>
+                        {{end}}
+                    </ul>
+                </div>
+            {{end}}
+            <a href="/" class="back-home-button">Back to Home Page</a>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">&copy; 2024 Music Lovers. All rights reserved.</p>
+            <p class="footer-text">🎶 Dive into the world of legendary artists and their iconic masterpieces! Explore, discover, and celebrate the music that shaped our lives.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,162 @@
+/* 404.css */
+
+/* CSS Variables for Easy Customization */
+:root {
+    --primary-color: #e67e22; /* Orange */
+    --primary-color-hover: #d35400; /* Darker Orange for Hover */
+    --secondary-color: #2ecc71; /* Green */
+    --accent-color: #e74c3c; /* Red */
+    /* Updated Orange Background Gradient */
+    --background-gradient: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+    --text-color: #ffffff; /* White for better contrast */
+    --error-background: rgba(255, 255, 255, 0.85); /* Slightly more opaque white */
+    --border-radius: 12px;
+    --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    --transition-speed: 0.3s;
+    --font-family: 'Roboto', sans-serif;
+    --max-width: 500px;
+  }
+  
+  /* Global Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-family);
+    background: var(--background-gradient);
+    color: var(--text-color);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.5s ease;
+  }
+  
+  .container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .error-wrapper {
+    background: var(--error-background);
+    padding: 60px 80px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: var(--max-width);
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .error-code {
+    font-size: 120px;
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+  }
+  
+  .error-code i {
+    margin-right: 15px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    letter-spacing: 1px;
+  }
+  
+  p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #34495e;
+    line-height: 1.6;
+  }
+  
+  .actions {
+    margin-bottom: 20px;
+  }
+  
+  .actions a {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 14px 30px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 30px;
+    transition: background var(--transition-speed) ease, transform var(--transition-speed) ease;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-home {
+    background: var(--primary-color);
+  }
+  
+  .btn-home:hover {
+    background: var(--primary-color-hover);
+    transform: translateY(-3px);
+  }
+  
+  @media (max-width: 768px) {
+    .error-wrapper {
+        padding: 40px 60px;
+    }
+  
+    .error-code {
+        font-size: 100px;
+    }
+  
+    h1 {
+        font-size: 30px;
+    }
+  
+    p {
+        font-size: 16px;
+    }
+  
+    .actions a {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .error-wrapper {
+        padding: 30px 40px;
+    }
+  
+    .error-code {
+        font-size: 80px;
+    }
+  
+    h1 {
+        font-size: 24px;
+    }
+  
+    p {
+        font-size: 14px;
+    }
+  
+    .actions a {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+  }
+  
+  /* Keyframes for Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  

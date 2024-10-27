@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/main.css">
+    <title>Home Page - Groupie Tracker</title>
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <header>
+        <div class="header-container">
+            <a href="./index.html" class="logo-link"></a>  
+        </div>
+        <div class="logo-container">
+            <img src="static/Screenshot_from_2024-10-17_23-52-31-removebg-preview.png" alt="Logo" class="logo">
+        </div>
+    </header>
+    <main>
+        <div class="artist-container">
+            {{range .}} <!-- This assumes . is a slice of artists -->
+            <div class="artist-card">
+                <a href="/artistProfile?artistId={{.ID}}"> 
+                    <img src="{{.Image}}" alt="Image of {{.Name}}" class="artist-image">
+                    <p class="artist-name">{{.Name}}</p> <!-- Name will be shown on hover -->
+                </a>
+            </div>
+            {{end}}
+        </div>
+
+        <a href="/" class="back-home-button">Back to Home Page</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Music Lovers. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+
+
+

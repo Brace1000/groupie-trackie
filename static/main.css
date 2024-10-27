@@ -1,0 +1,177 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #21211c; /* Fallback color */
+    background-image: url('DeWatermark.ai_1729187425938-min.png'); /* Background image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.overlay {
+    position: fixed; /* Fix the overlay to the viewport */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+    z-index: 0; /* Ensure it is behind the content */
+}
+
+header {
+    background-color: black; /* Keep the background color for the header */
+    padding: 5px 0; /* Reduced vertical padding for a smaller header */
+    text-align: center; /* Center the header content */
+    position: relative; /* Position relative for proper layering */
+    z-index: 1; /* Ensure header is above overlay */
+    border: 3px solid yellow; /* Yellow border around the header */
+    border-radius: 10px; /* Rounded corners for the border */
+    margin: 10px; /* Optional: space around the header, adjust as needed */
+    display: flex;
+    justify-content: center; /* Center the content */
+    align-items: center; /* Align items vertically */
+    position: relative;
+}
+
+.logo-container {
+    position: relative; /* Make this relative for proper layering */
+    z-index: 1; /* Bring the logo above the overlay */
+}
+
+.logo {
+    max-width: 250px;
+    height: auto;
+}
+
+main {
+    width: 100vw; /* Full width of the viewport */
+    padding: 10px; /* Padding around the container */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    z-index: 1; /* Bring main content above the overlay */
+    position: relative; /* Ensure main content is positioned correctly */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    min-height: 100vh; /* Ensure main takes full height of the viewport */
+}
+
+.artist-container {
+    display: flex; /* Use flexbox for a flexible layout */
+    flex-wrap: wrap; /* Allow wrapping to new lines */
+    justify-content: flex-start; /* Align items to the start */
+    gap: 15px; /* Space between items */
+}
+
+.artist-card {
+    position: relative; /* Necessary for absolute positioning of the name */
+    overflow: hidden; /* Ensure that content stays within the card */
+    max-width: calc(14.2857% - 10px); /* 7 items in a row with gaps */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.artist-image {
+    width: 100%; /* Use full width of the card */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Circular images */
+    object-fit: cover; /* Ensures the image covers the circle properly */
+}
+
+.artist-name {
+    visibility: hidden; /* Hide the name by default */
+    position: absolute; /* Position it over the image */
+    bottom: 10px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%); /* Center the name horizontally */
+    background: rgba(0, 0, 0, 0.7); /* Optional: add background for better visibility */
+    color: white; /* Text color */
+    padding: 5px; /* Optional: add some padding */
+    border-radius: 5px; /* Optional: rounded corners */
+    transition: visibility 0s, opacity 0.3s linear; /* Smooth transition */
+    opacity: 0; /* Make it fully transparent */
+}
+
+.artist-card:hover .artist-name {
+    visibility: visible; /* Show the name on hover */
+    opacity: 1; /* Make it fully opaque */
+}
+
+footer {
+    text-align: center; /* Center footer text */
+    padding: 20px; /* Add padding */
+}
+
+.artist-picture {
+    width: 200px; /* Adjust width for the circular image */
+    height: 200px; /* Set equal height for the circular shape */
+    border-radius: 50%; /* Make it a circle */
+    object-fit: cover; /* Ensure the image covers the circular area properly */
+    animation: rotate 10s linear infinite; /* Apply a slow, constant rotation */
+}
+
+/* Define the keyframes for the rotation animation */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg); /* Starting point: no rotation */
+    }
+    to {
+        transform: rotate(360deg); /* End point: full rotation */
+    }
+}
+
+.back-home-button {
+    position: relative; /* Relative to the main container */
+    background-color: yellow; /* Background color for visibility */
+    color: black; /* Text color */
+    padding: 10px 15px; /* Padding for the button */
+    text-decoration: none; /* Remove underline from the link */
+    border-radius: 5px; /* Rounded corners */
+    font-weight: bold; /* Make the text bold */
+    display: inline-block; /* Inline-block for proper sizing */
+    margin-top: 20px; /* Add space between the content and the button */
+}
+
+footer {
+    text-align: center; /* Center the button in the footer */
+    padding: 20px; /* Padding around the button */
+}
+
+.back-home-button:hover {
+    background-color: white; /* Change background on hover */
+    color: black; /* Text color on hover */
+}
+
+.link-yellow-bold {
+    font-weight: bold;
+    color: yellow; /* Change this to your desired yellow shade */
+    text-decoration: none; /* Removes underline if desired */
+}
+
+.link-yellow-bold:hover {
+    text-decoration: underline; /* Adds underline on hover */
+}
+
+.main-title {
+    font-size: 2.5em; /* Adjusts the font size for the main title */
+    margin-bottom: 20px; /* Adds space below the title */
+}
+
+.location-id {
+    font-size: 1.8em; /* Adjusts the font size for the location ID */
+}
+
+.location-date {
+    font-size: 1.2em; /* Adjusts the font size for the date */
+}
+
+.footer-text {
+    font-size: 1em; /* Adjusts the font size for footer text */
+}
+
+/* Optional: Adjust the overall font size for the page */
+body {
+    font-size: 16px; /* Sets a base font size for the page */
+    line-height: 1.5; /* Adjusts line height for readability */
+}

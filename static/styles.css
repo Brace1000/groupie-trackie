@@ -1,0 +1,158 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+    align-items: center; 
+    text-align: center;
+    background-image: url('DeWatermark.ai_1729187425938-min.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+h1, p, a, .search-container, header, footer {
+    position: relative;
+    z-index: 2;
+}
+
+.logo-container {
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    max-width: 500px;
+    height: auto;
+}
+
+header {
+    width: 100%; /* Full width for the header */
+    height: 100px; /* Set a height for the header, adjust as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0; /* Remove padding */
+    position: relative; /* Position relative for proper layering */
+    margin-bottom: 0; /* No margin below header */
+    background-color: black; /* Background color for the header */
+    border: 3px solid yellow; /* Yellow border around the header */
+    border-radius: 10px; /* Rounded corners for the border */
+    box-sizing: border-box; /* Include border in total width */
+}
+
+.header-container {
+    display: flex; /* Flexbox for arranging children */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    width: 100%; /* Ensure the container also stretches full width */
+    height: 100%; /* Full height to match the header */
+}
+
+.artist-button {
+    background: none; /* No background color for the button */
+    color: yellow; /* Text color */
+    font-size: 30px; /* Button text size */
+    cursor: pointer; /* Change cursor on hover */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Padding inside the button */
+    position: relative; /* Position relative for underline effect */
+    transition: color 0.3s ease; /* Transition effect for text color */
+}
+
+.artist-button::after {
+    content: ''; /* Create a pseudo-element for underline */
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Position it below the text */
+    width: 100%;
+    height: 2px; /* Height of the underline */
+    background-color: yellow; /* Color of the underline */
+    transform: scaleX(0); /* Initially hidden */
+    transition: transform 0.3s ease; /* Transition for the underline */
+    z-index: 2; /* Ensure it appears above other elements */
+}
+
+.artist-button:hover {
+    color: yellow; /* Change text color on hover */
+}
+
+.artist-button:hover::after {
+    transform: scaleX(1); /* Show underline on hover */
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#search-bar {
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    color: #333;
+}
+
+#search-bar:focus {
+    outline: none;
+    background-color: white;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03);
+}
+
+#search-bar::placeholder {
+    color: #bbb;
+    font-style: italic;
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50px;
+    background-color: #ffcc00;
+    border: none;
+    margin-left: 15px;
+    transition: all 0.3s ease-in-out;
+    color: #333;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    color: #ffcc00;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+footer {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 0;
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    font-size: 0.9em;
+}

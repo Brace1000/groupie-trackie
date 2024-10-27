@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/main.css">
+    <title>Relations</title>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<header>
+    <div class="logo-container">
+        <img src="static/Screenshot_from_2024-10-17_23-52-31-removebg-preview.png" alt="Logo" class="logo">
+    </div>
+</header>
+
+    <main>
+        <div class="container">
+            <h1>Relations</h1>
+            {{if .}}
+            {{range .}}
+                <div class="relation-item">
+                    <!-- <h2>Relation ID: {{.ID}}</h2> -->
+                    <ul>
+                        {{range $date, $locations := .DatesLocation}}
+                            <li>{{ $date }}:
+                                <ul>
+                                    {{range $locations}}
+                                        <li>{{.}}</li>
+                                    {{end}}
+                                </ul>
+                            </li>
+                        {{end}}
+                    </ul>
+                </div>
+            {{end}}
+            {{else}}
+                <p>No relations available.</p>
+            {{end}}
+            <a href="/" class="back-home-button">Back to Home Page</a>        
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Music Lovers. All rights reserved.</p>
+        <p>Delve into the lives and legacies of legendary artists and their iconic works. For further insights, check out our <a href="#">About Page</a>.</p>
+        <p>Join us on this musical journey and discover the stories behind the sounds!</p>
+    
+   </body>
+</html>
